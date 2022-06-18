@@ -1,0 +1,11 @@
+ARK.BIN loader that works no matter where it's loaded in RAM.
+
+load address/size/file are defined at the bottom of the asm file.
+
+It passes the savedata folder path, example,
+	ms0:/PSP/SAVEDATA/LOL IM A SAVEDATA FOLDER PATH NOW USE ME TO LOAD ARK.BIN .D-<-</
+
+The path is grabbed from the original binloader path so you might want to strcpy it somewhere else in ARK.BIN.
+
+Update:
+The path is now copied to 0x08803800.
