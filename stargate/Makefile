@@ -3,7 +3,7 @@ C_OBJS = main.o loadmodule_patch.o savedata_patch.o nodrm_patch.o
 OBJS = $(C_OBJS)
 all: $(TARGET).prx
 INCDIR = $(PROVITA)/common/include
-CFLAGS = -Os -G0 -Wall -fno-pic
+CFLAGS = -Os -G0 -Wall -fno-pic 
 
 ifdef DEBUG
 CFLAGS += -DDEBUG=$(DEBUG)

@@ -36,6 +36,7 @@
 PSP_MODULE_INFO("stargate", 0x1007, 1, 0);
 PSP_MAIN_THREAD_ATTR(0);
 
+
 // Previous Module Start Handler
 STMOD_HANDLER previous;
 

@@ -83,18 +83,11 @@
 #ifdef F_SystemCtrlForUser_0025
 	IMPORT_FUNC "SystemCtrlForUser",0xE8390345,sctrlGetExploitID
 #endif
+
 #ifdef F_SystemCtrlForUser_0026
 	IMPORT_FUNC "SystemCtrlForUser",0x1C90BECB,sctrlHENSetStartModuleHandler
-#endif
-#ifdef F_SystemCtrlForUser_0027
-	IMPORT_FUNC  "SystemCtrlForUser",0x3DF7F7D8,printk
-#endif
-#ifdef F_SystemCtrlForUser_0028
-	IMPORT_FUNC  "SystemCtrlForUser",0xCB739F42,printkCached
-#endif
-#ifdef F_SystemCtrlForUser_0029
-	IMPORT_FUNC  "SystemCtrlForUser",0x5C94CB48,printkSync
 #endif
 #ifdef F_SystemCtrlForUser_0030
 	IMPORT_FUNC  "SystemCtrlForUser",0xFCE44FB8,sctrlGetInitPARAM
 #endif
+

@@ -1,14 +1,17 @@
 # Number of Compilation Threads
 OPT=-j8
 
-PYTHON = $(shell which python2)
-PROVITA ?= $(CURDIR)
+ARKROOT = $(shell pwd)
+PROVITA ?= $(shell pwd)
+
+
+PYTHON = $(shell which python3)
 USE_FLASH0_ARK ?= 1
 SAVE ?= -1
 K ?= sceSdGetLastIndex
 FLASH_DUMP ?= 0
 
-export DEBUG PROVITA K FLASH_DUMP
+export ARKROOT DEBUG PROVITA K FLASH_DUMP
 export POPSMAN_VERSION POPS_VERSION
 
 SUBDIRS = libs systemctrl ISODrivers/galaxy stargate exitgame menu/provsh menu/arkMenu menu/xMenu popcorn peops ISODrivers/inferno rebootbuffer ark kxploit loader contrib/PC/btcnf

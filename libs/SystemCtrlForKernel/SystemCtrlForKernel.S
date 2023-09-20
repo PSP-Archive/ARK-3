@@ -155,6 +155,3 @@
 #ifdef F_SystemCtrlForKernel_0049
 	IMPORT_FUNC  "SystemCtrlForKernel",0x72D520D4,sctrlGetThreadContextByName
 #endif
-#ifdef F_SystemCtrlForKernel_0050
-	IMPORT_FUNC  "SystemCtrlForKernel",0xFCE44FB8,sctrlGetInitPARAM
-#endif

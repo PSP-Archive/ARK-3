@@ -20,6 +20,8 @@
 
 #include <module2.h>
 
+extern int sctrlKernelGetGameID(char gameid[GAME_ID_MINIMUM_BUFFER_SIZE]);
+
 // Fix Exploit Game Save
 void fixExploitGameModule(SceModule2 * mod);
 

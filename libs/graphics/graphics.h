@@ -20,7 +20,7 @@
 
 #include "../colordebugger/colordebugger.h"
 
-#define	PSP_LINE_SIZE 512
+#define    PSP_LINE_SIZE 512
 #define SCREEN_WIDTH 480
 #define SCREEN_HEIGHT 272
 
@@ -48,7 +48,7 @@ void PRTSTR11(const char* A, unsigned long B, unsigned long C, unsigned long D, 
 #define PRTSTR(text) PRTSTR1(text, 0)
 
 //init screen
-void initScreen(int (*DisplaySetFrameBuf)());
+void initScreen(int (*DisplaySetFrameBuf)(void*, int, int, int));
 
 //clear screen
 void cls();

@@ -51,7 +51,7 @@ intraFont* common::getFont(){
 
 
 void common::printText(float x, float y, const char *text){
-	intraFontSetStyle(font, 0.51f, GRAY_COLOR, BLACK_COLOR, 0);
+	intraFontSetStyle(font, 0.51f, GRAY_COLOR, BLACK_COLOR, 0.0, 0);
 	intraFontPrint(font, x, y, text);
 }
 

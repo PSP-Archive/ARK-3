@@ -24,6 +24,8 @@ u32* g_vram_base = (u32*)0x44000000;
 u16* ps1_vram = (u16*)0x490C0000;
 POPSVramConfigVLA* vram_config = (POPSVramConfigVLA*)0x49FE0000;
 
+void (*screen_handler)(u32 vram);
+
 void (*_psxVramHandler)(u32* psp_vram, u16* ps1_vram) = (void*)NULL;
 void* registerPSXVramHandler(void (*handler)(u32* psp_vram, u16* ps1_vram)){
 	void* prev = _psxVramHandler;
