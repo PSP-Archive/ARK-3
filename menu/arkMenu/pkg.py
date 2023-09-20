@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import os
 
@@ -19,24 +19,24 @@ pkg.close()
 
 pkg = open(DEST_FILE, 'w+')
 
-for i in xrange(len(dir)):
+for i in range(len(dir)):
 	if os.path.isfile(IMAGE_DIRECTORY+dir[i]) and dir[i] != DEST_FILE:
 		track.append(pkg.tell())
-		pkg.write(int2bin(0) + int2bin(len(dir[i])))
+		pkg.write(str(int2bin(0) + int2bin(len(dir[i]))))
 		pkg.write(dir[i]+"\0")
 
 pkg.write(int2bin(0xFFFFFFFF))
 
 track.reverse()
 
-for i in xrange(len(dir)):
+for i in range(len(dir)):
 	if os.path.isfile(IMAGE_DIRECTORY+dir[i]) and dir[i] != DEST_FILE:
 		fd = open(IMAGE_DIRECTORY+dir[i], 'rb')
 		cur = pkg.tell()
 		pkg.seek(track.pop())
-		pkg.write(int2bin(cur))
+		pkg.write(str(int2bin(cur)))
 		pkg.seek(cur)
-		pkg.write(fd.read())
+		pkg.write(str(fd.read()))
 		fd.close()
 
 pkg.close()

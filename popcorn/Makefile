@@ -38,7 +38,7 @@ USE_KERNEL_LIBS=1
 
 LIBDIR = $(PROVITA)/libs
 LDFLAGS = -mno-crt0 -nostartfiles
-LIBS = -lpsid -lpspsystemctrl_kernel -lpspsemaphore -lpsprtc -lpspaudio -lgraphics
+LIBS = -lpsid -lpspsystemctrl_kernel -lpspsystemctrl_user -lpspsemaphore -lpsprtc -lpspaudio -lgraphics
 
 include $(PROVITA)/common/make/global.mak
 PSPSDK=$(shell psp-config --pspsdk-path)

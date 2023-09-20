@@ -26,5 +26,7 @@ int sceUtilsBufferCopyWithRange(void * inbuf, SceSize insize, void * outbuf, int
 // KIRK Function (Polling)
 int sceUtilsBufferCopyByPollingWithRange(void * inbuf, SceSize insize, void * outbuf, int outsize, int cmd);
 
+int sctrlKernelGetGameID(char gameid[GAME_ID_MINIMUM_BUFFER_SIZE]);
+
 #endif
 
