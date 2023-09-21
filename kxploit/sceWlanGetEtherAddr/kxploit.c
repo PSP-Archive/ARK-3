@@ -27,9 +27,9 @@
 #include <rebootconfig.h>
 #include <systemctrl_se.h>
 #include "kxploit.h"
-#include "functions.h"
+#include <functions.h>
 
-FunctionTable *g_tbl = NULL;
+//FunctionTable extern *g_tbl = NULL;
 
 int (* WlanGetEtherAddr)(unsigned char *destAddr) = NULL;
 void (* KernelLibcTime)(int, int) = NULL;

@@ -72,7 +72,7 @@ int exploitEntry(char* arg0)
 	// read kxploit file into memory and initialize it
 	initKxploitFile();
 	
-	if (kxf->stubScanner() == 0)
+	if (kxf->stubScanner(g_tbl) == 0)
 	{
 		// Corrupt Kernel
 		int ret = kxf->doExploit();

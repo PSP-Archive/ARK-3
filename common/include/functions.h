@@ -25,13 +25,66 @@
 
 // K.BIN communication interface
 typedef struct KxploitFunctions{
-	int (* stubScanner)(void);
+	int (* stubScanner)(struct UserFunctions*);
 	int (* doExploit)(void);
 	void (* executeKernel)(u32 kernelContentFunction);
 	void (* repairInstruction)(void);
 	void (* p5_open_savedata)(int mode);
 	void (* p5_close_savedata)();
 }KxploitFunctions;
+
+typedef struct UserFunctions
+{
+    ARKConfig* config;
+    int (* IoOpen)(char *, int, int);
+    int (* IoRead)(int, void *, int);
+    int (* IoWrite)(int, void *, int);
+    int (* IoClose)(int);
+    int (* IoRemove)(char*);
+    void (* KernelLibcTime)(int);
+    void (* KernelLibcClock)();
+    int (* KernelPowerLock)(unsigned int, unsigned int);
+    void (* KernelDcacheWritebackAll)(void);
+    void (* KernelIcacheInvalidateAll)(void);
+    int (* DisplaySetFrameBuf)(void *topaddr, int bufferwidth, int pixelformat, int sync);
+    SceUID (* KernelCreateThread)(const char *name, SceKernelThreadEntry entry, int initPriority, int stackSize, SceUInt attr, SceKernelThreadOptParam *option);
+    int (* KernelStartThread)(SceUID thid, SceSize arglen, void *argp);
+    void (* KernelDelayThread)(uint32_t);
+    void (* KernelExitThread)(uint32_t);
+    int (* KernelExitDeleteThread)(int status);
+    int (* KernelWaitThreadEnd)(SceUID thid, SceUInt *timeout);
+    SceUID (* KernelCreateVpl)(const char*, int, int, unsigned int, void*);
+    int (* KernelTryAllocateVpl)(SceUID, unsigned int, void**);
+    int (* KernelFreeVpl)(SceUID uid, void *data);
+    int (* KernelDeleteVpl)(int);
+    int (* KernelDeleteFpl)(int);
+    unsigned int (*KernelCpuSuspendIntr)();
+    void (*KernelCpuResumeIntr)(unsigned int flags);
+    int (* UtilityLoadModule)(int);
+    int (* UtilityUnloadModule)(int);
+    int (* UtilityLoadNetModule)(int);
+    int (* UtilityUnloadNetModule)(int);
+    //int (* SysMemUserForUser_91DE343C)( void *unk );
+    SceUID (*KernelAllocPartitionMemory)(SceUID partitionid, const char *name, int type, SceSize size, void *addr);
+    void * (*KernelGetBlockHeadAddr)(SceUID blockid);
+    int (* KernelFreePartitionMemory)(int);
+    int (* UtilitySavedataGetStatus)();
+    int (* UtilitySavedataInitStart)(void* params);
+    void (* UtilitySavedataUpdate)(int a0);
+    int (* UtilitySavedataShutdownStart)();
+    int (* KernelVolatileMemUnlock)(int unknown);
+    // common ark functions
+    void (* freeMem)(struct UserFunctions*);
+    u32 (* FindImportUserRam)(char *libname, u32 nid);
+    u32 (* FindImportVolatileRam)(char *libname, u32 nid);
+    u32 (* FindImportRange)(char *libname, u32 nid, u32 lower, u32 higher);
+    void* (* RelocSyscall)(u32 call);
+    int (* p5_open_savedata)(int mode);
+    int (* p5_close_savedata)();
+    u32 (* qwikTrick)(char* lib, u32 nid, u32 version);
+    void (*prtstr)(const char* A, unsigned long B, unsigned long C, unsigned long D, unsigned long E, unsigned long F, unsigned long G, unsigned long H, unsigned long I, unsigned long J, unsigned long K, unsigned long L);
+} UserFunctions;
+
 
 // PBP Header
 typedef struct
@@ -80,6 +133,9 @@ typedef struct FunctionTable
 	void* (* RelocSyscall)(u32 call);
 	void (*prtstr)(const char* A, unsigned long B, unsigned long C, unsigned long D, unsigned long E, unsigned long F, unsigned long G, unsigned long H, unsigned long I, unsigned long J, unsigned long K, unsigned long L);
 	u32 (*FindTextAddrByName)(const char*);
+	u32 (*sceKernelExitDeleteThread)(u32 status);
+	u32 (*KernelAllocPartitionMemory)(u32 partitionid, const char *name, int type, SceSize size, void *addr);
+	void (* KernelLibcClock)();
 } FunctionTable;
 
 // fills a FunctionTable instance with all available imports
@@ -144,7 +200,8 @@ typedef struct KernelFunctions{
 
 	int (* WlanGetEtherAddr)(unsigned char *destAddr);
 
-	int (* Kermit_driver_4F75AA05)(KermitPacket *packet, u32 cmd_mode, u32 cmd, u32 argc, u32 allow_callback, u64 *resp);
+	//int (* Kermit_driver_4F75AA05)(KermitPacket *packet, u32 cmd_mode, u32 cmd, u32 argc, u32 allow_callback, u64 *resp);
+	int (* Kermit_driver_4F75AA05)(void* kermit_packet, u32 cmd_mode, u32 cmd, u32 argc, u32 allow_callback, u64 *resp);
 	
 	int (* KernelLoadExecVSHWithApitype)(int, char *, struct SceKernelLoadExecVSHParam *, int);
 	

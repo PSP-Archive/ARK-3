@@ -34,10 +34,11 @@ extern FunctionTable* g_tbl;
 #define PRTSTR1(text, x1) PRTSTR2(text, x1, 0)
 #define PRTSTR(text) PRTSTR1(text, 0)
 
-extern int stubScanner(void);
+//extern int stubScanner(void);
 extern int doExploit(void);
 extern void executeKernel(u32 kernelContentFunction);
-extern void repairInstruction(void);
+extern void repairInstruction(KernelFunctions*);
+extern int stubScanner(UserFunctions* tbl);
 
 // p5 stubs
 extern void p5_open_savedata(int mode);
