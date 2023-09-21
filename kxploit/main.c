@@ -1,5 +1,7 @@
 #include <sdk.h>
 #include "kxploit.h"
+#include "functions.h"
+
 
 int (* _sceUtilitySavedataGetStatus)() = (void*)NULL;
 int (* _sceUtilitySavedataInitStart)(SceUtilitySavedataParam *params) = (void*)NULL;

@@ -8,7 +8,7 @@ PROVITA ?= $(shell pwd)
 PYTHON = $(shell which python3)
 USE_FLASH0_ARK ?= 1
 SAVE ?= -1
-K ?= sceSdGetLastIndex
+K ?= vita360
 FLASH_DUMP ?= 0
 
 export ARKROOT DEBUG PROVITA K FLASH_DUMP
