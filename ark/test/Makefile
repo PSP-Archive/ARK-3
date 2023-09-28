@@ -5,7 +5,7 @@ LIBDIR = $(PROVITA)/libs/graphics $(PROVITA)/libs/ansic $(PROVITA)/libs/colordeb
 LIBS = -lgraphics -lansic -lcolordebugger -L $(PROVITA)/libs
 TARGET = ARK.BIN
 
-PYTHON=$(shell which python2)
+PYTHON=$(shell which python3)
 
 all: $(TARGET)
 

@@ -155,7 +155,7 @@ void OnModuleStart(SceModule2 *mod)
 void load_game_profile(char * gameid)
 {
 	
-	#ifdef DEBUG
+	#ifdef DEBUG1
 	// Output Pointer (just in case)
 	printk("gameid pointer: %08X\n", (u32)gameid);
 	

@@ -56,6 +56,7 @@ void getUserFunctions(){
 	tbl->IoWrite = (void*)RelocImport("IoFileMgrForUser", 0x42EC03AC, 0);
 	
 	tbl->KernelLibcTime = (void*)RelocImport("UtilsForUser", 0x27CC57F0, 0);
+	tbl->KernelLibcClock = (void*)RelocImport("UtilsForUser", 0x91E4F6A7, 0);
 	tbl->KernelDcacheWritebackAll = (void*)RelocImport("UtilsForUser", 0x79D1C3FA, 0);
 	tbl->DisplaySetFrameBuf = (void*)RelocImport("sceDisplay", 0x289D82FE, 0);
 
@@ -74,6 +75,8 @@ void getUserFunctions(){
 	
 	tbl->SysMemUserForUser_91DE343C = (void*)RelocImport("SysMemUserForUser", 0x91DE343C, 0);
 	tbl->KernelFreePartitionMemory = (void*)RelocImport("SysMemUserForUser", 0xB6D61D02, 0);
+	tbl->KernelExitDeleteThread = (void*)RelocImport("ThreadManForUser", 0x809CE29B, 0);
+	tbl->KernelAllocPartitionMemory = (void*)RelocImport("SysMemUserForUser", 0x237DBD4F, 0);
 	
 	/*
 	tbl->IoOpen = (void*)FindImportUserRam("IoFileMgrForUser", 0x109F50BC);

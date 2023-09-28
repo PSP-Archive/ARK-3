@@ -50,7 +50,7 @@ ifdef FLASH_RESTORE
 CFLAGS += -DFLASH_RESTORE=$(FLASH_RESTORE)
 endif
 
-CFLAGS += -I include -I $(PROVITA)/common/include/ -I $(PROVITA)/libs/graphics/ -I $(PROVITA)/kxploit/
+CFLAGS += -I include -I $(PROVITA)/common/include/ -I $(PROVITA)/libs/graphics/ -I $(PROVITA)/kxploit/ -lcolordebugger
 
 ifdef DEBUG
 CFLAGS += -DDEBUG=$(DEBUG)

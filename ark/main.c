@@ -152,7 +152,8 @@ void runMenu(void)
 	char path[SAVE_PATH_SIZE];
 	memset(path, 0, SAVE_PATH_SIZE);
 	strcpy(path, savepath);
-	strcat(path, (IS_VITA_POPS)?"XBOOT.PBP":"VBOOT.PBP");
+	//strcat(path, (IS_VITA_POPS)?"XBOOT.PBP":"VBOOT.PBP");
+	strcat(path, "VBOOT.PBP");
 
 	char recoverypath[SAVE_PATH_SIZE];
 	memset(recoverypath, 0, SAVE_PATH_SIZE);
@@ -216,10 +217,9 @@ void kernelContentFunction(void)
 	// Switch to Kernel Permission Level
 	setK1Kernel();
 
-	kxf->repairInstruction();
-	
-	// get kernel functions
 	getKernelFunctions();
+
+	//kxf->repairInstruction();
 	
 	// determine global configuration that affects how ARK behaves
 	determineGlobalConfig();

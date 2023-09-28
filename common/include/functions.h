@@ -58,6 +58,7 @@ typedef struct FunctionTable
 	int (* IoWrite)(int, void *, int);
 	int (* IoClose)(int);
 	void (* KernelLibcTime)(int);
+	void (* KernelLibcClock)(void);
 	SceUID (* KernelCreateThread)(const char *name, SceKernelThreadEntry entry, int initPriority, int stackSize, SceUInt attr, SceKernelThreadOptParam *option);
 	int (* KernelStartThread)(SceUID thid, SceSize arglen, void *argp);
 	void (* KernelDelayThread)(uint32_t);
@@ -72,6 +73,8 @@ typedef struct FunctionTable
 	int (* KernelDeleteFpl)(int);
 	int (* DisplaySetFrameBuf)(void *topaddr, int bufferwidth, int pixelformat, int sync);
 	void (* KernelDcacheWritebackAll)(void);
+	int (* KernelExitDeleteThread)(int status);
+	SceUID (*KernelAllocPartitionMemory)(SceUID partitionid, const char *name, int type, SceSize size, void *addr);
 	// common ark functions
 	void (* freeMem)(struct FunctionTable* g_tbl);
 	u32 (* FindImportUserRam)(char *libname, u32 nid);
@@ -144,7 +147,8 @@ typedef struct KernelFunctions{
 
 	int (* WlanGetEtherAddr)(unsigned char *destAddr);
 
-	int (* Kermit_driver_4F75AA05)(KermitPacket *packet, u32 cmd_mode, u32 cmd, u32 argc, u32 allow_callback, u64 *resp);
+	//int (* Kermit_driver_4F75AA05)(KermitPacket *packet, u32 cmd_mode, u32 cmd, u32 argc, u32 allow_callback, u64 *resp);
+	int (* Kermit_driver_4F75AA05)(void* kermit_packet, u32 cmd_mode, u32 cmd, u32 argc, u32 allow_callback, u64 *resp);
 	
 	int (* KernelLoadExecVSHWithApitype)(int, char *, struct SceKernelLoadExecVSHParam *, int);
 	

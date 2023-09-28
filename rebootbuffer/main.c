@@ -190,7 +190,6 @@ int PROPRXDecrypt(void * prx, unsigned int size, unsigned int * newsize)
 // Load Core module_start Hook
 int loadcoreModuleStart(unsigned int args, void * argp, int (* start)(SceSize, void *))
 {
-
 	typedef struct LoadCoreBackup{
 		u32 data;
 		u32* addrs[2];

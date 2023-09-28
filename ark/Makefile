@@ -3,7 +3,7 @@ INCDIR = $(PSPSDK)/include $(PROVITA)/common/include $(PROVITA)
 LIBS= -lcolordebugger -lgraphics -lansic -L $(PROVITA)/libs
 TARGET = ark.bin
 
-PYTHON=$(shell which python2)
+PYTHON=$(shell which python3)
 
 all: pre-build $(TARGET)
 

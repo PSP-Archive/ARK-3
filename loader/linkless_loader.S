@@ -835,7 +835,7 @@ $LOAD_ADDRESS:
 	move	$16,$ra
 	jalr	$16
 	nop
-	.word 0x00010000
+	.word 0x08D30000
 
 $LOAD_SIZE:
 	move	$16,$ra

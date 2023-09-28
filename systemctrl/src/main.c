@@ -23,7 +23,7 @@
 #include "modulemanager.h"
 #include "loadercore.h"
 #include "filesystem.h"
-#include "interruptman.h"
+#include "interruptman.h" 
 #include "cryptography.h"
 #include "syspatch.h"
 #include "sysmem.h"
@@ -55,7 +55,6 @@ void protectMemory(){
 // Boot Time Entry Point
 int module_bootstart(SceSize args, void * argp)
 {
-
 
 	setIsVitaPops((int)(IS_VITA_POPS));
 
@@ -104,6 +103,10 @@ int module_bootstart(SceSize args, void * argp)
 // Run Time Entry Point
 int module_start(SceSize args, void * argp)
 {
+	 _sw(0x44000000, 0xBC800100);
+	
+	 colorDebug(0x00FF00);
+
 	// Simply there to ensure our Entry Point gets called...
 	return module_bootstart(args, argp);
 }

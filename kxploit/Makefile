@@ -3,11 +3,11 @@ INCDIR = $(PSPSDK)/include $(PROVITA)/common/include $(PROVITA)
 LIBS= -L$(PROVITA)/libs -lansic
 TARGET = k.bin
 
-PYTHON=$(shell which python2)
+PYTHON=$(shell which python3)
 
 all: pre-build $(TARGET)
 
-CFLAGS = -Wall -Os -G0 -fno-pic $(addprefix -I, $(INCDIR))
+CFLAGS = -std=c99 -Wall -Os -G0 -fno-pic $(addprefix -I, $(INCDIR))
 
 CFLAGS += -I $(PROVITA)/kxploit/
 

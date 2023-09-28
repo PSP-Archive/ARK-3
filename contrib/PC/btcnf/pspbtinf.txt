@@ -68,4 +68,4 @@ $%/vsh/module/pafmini.prx P
 $%/vsh/module/common_util.prx VP
 # pops uses libpspvmc
 $%/vsh/module/psplibpspvmc.prx P
-%%/kd/dummy_anchor_IhariUafaayk98.prx GUPAEM
+$%/kd/dummy_anchor_IhariUafaayk98.prx GUPAEM

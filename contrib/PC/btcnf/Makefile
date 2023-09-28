@@ -1,4 +1,4 @@
-PYTHON=$(shell which python2)
+PYTHON=$(shell which python3)
 
 PSPBTCNF_TARGETS = pspbtinf pspbtxnf pspbtnnf pspbtmnf
 PSPBTCNF_OBJS = $(addsuffix .bin,$(PSPBTCNF_TARGETS))
